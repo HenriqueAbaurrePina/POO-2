@@ -45,8 +45,8 @@ class Conta{
     {
         Console.WriteLine("Transações realizadas:");
         foreach (var transacao in transacoes) {
-            Console.WriteLine($"{transacao.Item1}: R${transacao.Item2}");
+            Console.WriteLine($"---------------\n{transacao.Item1}: R${transacao.Item2}\n");
         }
-        Console.WriteLine($"Saldo atual: R${saldo}");
+        Console.WriteLine($"---------------\nSaldo atual: R${saldo}");
     }
 }
