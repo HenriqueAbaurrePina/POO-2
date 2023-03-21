@@ -1,0 +1,56 @@
+main.cs
+
+using System;
+using System.Collections.Generic;
+
+class Lista {
+    static Stack<Pessoa> contato = new Stack<Pessoa>();
+
+    static void Main(string[] args) {
+        contato.Push(new Pessoa("Pedro", "5527999885454"));
+        contato.Push(new Pessoa("Yuri", "5527888994545"));
+        // Mostra todos as pessoas adicionadas ao Stack inicialmente.
+        PrintLista();
+        // Metodo que adiciona uma nova pessoa (usado duas vezes).
+        AddPessoa(new Pessoa("Clicia", "5527998885454"));
+        AddPessoa(new Pessoa("Henrique", "5527992726567"));
+        Console.WriteLine("Stack após ser adicionada duas pessoas");
+        PrintLista();
+        // Método que remove a última pessoa adicionada.
+        RemovePessoa();
+        Console.WriteLine("Stack após ser retirada a ultima pessoa a ser adicionada");
+        PrintLista();
+    }
+
+    static void AddPessoa(Pessoa pessoa) {
+        contato.Push(pessoa);
+    }
+
+    static void RemovePessoa() {
+        if (contato.Count > 0) {
+            contato.Pop();
+        }
+    }
+
+    static void PrintLista() {
+        Console.WriteLine("Pessoas na lista:");
+        foreach (Pessoa pessoa in contato) {
+            Console.WriteLine("- " + pessoa.Nome + " - (" + pessoa.Numero + ")");
+        }
+        Console.WriteLine();
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pessoa.cs
+
+class Pessoa {
+    public string Nome { get; set; }
+    public string Numero { get; set; }
+
+    public Pessoa(string nome, string numero) {
+        this.Nome = nome;
+        this.Numero = numero;
+    }
+}
